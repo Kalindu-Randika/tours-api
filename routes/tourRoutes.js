@@ -10,6 +10,11 @@ const fs = require('fs');
 
 const router = express.Router();
 
+router.param('id', (req, res, next, val) => {
+  console.log(`Tour id is ${val}`);
+  next();
+});
+
 router.get('/', tourController.getAllTours);
 router.get('/:id', tourController.getTourById);
 
